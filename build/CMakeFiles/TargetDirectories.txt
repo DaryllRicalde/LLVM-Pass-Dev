@@ -1,0 +1,6 @@
+/home/riki/LLVM-Pass-Dev/build/CMakeFiles/rebuild_cache.dir
+/home/riki/LLVM-Pass-Dev/build/CMakeFiles/edit_cache.dir
+/home/riki/LLVM-Pass-Dev/build/CMakeFiles/intrinsics_gen.dir
+/home/riki/LLVM-Pass-Dev/build/FunctionsNames/CMakeFiles/rebuild_cache.dir
+/home/riki/LLVM-Pass-Dev/build/FunctionsNames/CMakeFiles/edit_cache.dir
+/home/riki/LLVM-Pass-Dev/build/FunctionsNames/CMakeFiles/FunctionsNamesPass.dir
