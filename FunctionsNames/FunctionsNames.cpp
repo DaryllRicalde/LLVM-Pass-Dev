@@ -21,13 +21,6 @@ namespace {
 
 
       return false;
-
-
-      
-
-
-
-
     }
   };
 }
@@ -40,6 +33,18 @@ static void registerFunctionsNamesPass(const PassManagerBuilder &,
                          legacy::PassManagerBase &PM) {
   PM.add(new FunctionsNamesPass());
 }
+
+//-----------------------------------------------------------------------------
+// Legacy PM Registration
+//-----------------------------------------------------------------------------
+
+// #1 REGISTRATION FOR "opt -analyze -legacy-opcode-counter"
+static RegisterPass<FunctionsNamesPass> X(/*PassArg=*/"legacy-functions-names",
+                                           /*Name=*/"Legacy FunctionsNames Pass",
+                                           /*CFGOnly=*/true,
+                                           /*is_analysis=*/false);
+
+
 static RegisterStandardPasses
   RegisterMyPass(PassManagerBuilder::EP_EarlyAsPossible,
                  registerFunctionsNamesPass);
