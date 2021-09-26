@@ -162,6 +162,19 @@ FunctionsNamesPass/fast:
 	$(MAKE) -f FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/build.make FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/build
 .PHONY : FunctionsNamesPass/fast
 
+#=============================================================================
+# Target rules for targets named DemanglerPass
+
+# Build rule for target.
+DemanglerPass: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 DemanglerPass
+.PHONY : DemanglerPass
+
+# fast build rule for target.
+DemanglerPass/fast:
+	$(MAKE) -f DemanglerPass/CMakeFiles/DemanglerPass.dir/build.make DemanglerPass/CMakeFiles/DemanglerPass.dir/build
+.PHONY : DemanglerPass/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -174,6 +187,7 @@ help:
 	@echo "... omp_gen"
 	@echo "... intrinsics_gen"
 	@echo "... FunctionsNamesPass"
+	@echo "... DemanglerPass"
 .PHONY : help
 
 
