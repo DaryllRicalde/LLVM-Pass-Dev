@@ -33,7 +33,9 @@ namespace {
         virtual bool runOnFunction(Function &F){
             StringRef name = F.getName();
             if(!F.isDeclaration()){
-                std::string demangled_name = demangle(name.str());
+                //std::string demangled_name = demangle(name.str());
+                //errs() << "Demangled name: " << demangled_name << "\n";
+                errs() << "Demangled name: " << "\n";
             }
             // name.str() -> get contents of StringRef object as a string
             
@@ -51,7 +53,7 @@ namespace {
             ItaniumPartialDemangler Mangler;
 
             char* result = Mangler.getFunctionBaseName(Buf, &size);
-            llvm::outs() << "Result: " << result << "\n";
+            //llvm::outs() << "Result: " << result << "\n";
             return result;
         }
     };
@@ -76,3 +78,8 @@ static RegisterPass<DemanglerPass> X(/*PassArg=*/"legacy-demangler-pass",
                                            /*Name=*/"Legacy Demangler Pass",
                                            /*CFGOnly=*/true,
                                            /*is_analysis=*/false);
+
+
+static RegisterStandardPasses
+  RegisterMyPass(PassManagerBuilder::EP_EarlyAsPossible,
+                 registerDemanglerPass);
