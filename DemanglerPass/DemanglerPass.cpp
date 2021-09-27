@@ -38,15 +38,13 @@ namespace {
             StringRef name = F.getName();
             // name.str() -> get contents of StringRef object as a string
 
-            if(!name.str().empty()){
+            if(name.str().rfind("_",0) == 0){
                 errs() << "Mangled name: " << name << "\n";
                 std::string demangled_name = demangle(name.str());
+                if(demangled_name == "") { errs() << "Empty demangled name returned!" << "\n"; }
                 errs() << "Demangled name: " << demangled_name << "\n";
                 errs() << "-------------------------------------------------" << "\n";
             }
-
-            // std::string new_name = rename(demangled_name);
-            // F.setName(mangle(new_name, &F))
 
             return true;
         }
@@ -68,8 +66,12 @@ namespace {
             char buf[1024];
             //unsigned int size = 1024;
             size_t size = 1024;
-            char* result = abi::__cxa_demangle(name.c_str(),buf,&size,&status);
-            return result;
+            if(name.c_str() != nullptr){
+                char* result = abi::__cxa_demangle(name.c_str(),buf,&size,&status);
+                return result;
+            }
+            
+            return "";
         }
     };
 }
