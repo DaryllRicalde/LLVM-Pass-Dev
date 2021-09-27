@@ -27,3 +27,7 @@ $LLVM_DIR/bin/clang++ -O1 -emit-llvm ./basic_cpp_tests/*.cpp -S -o out.ll
 
 - Mangled names always start with _Z. Following this is the mangled name of either a function and its type, an object name, or a "special name". 
 
+### Run on an example
+```
+$LLVM_DIR/bin/opt -load <build dir>/DemanglerPass/libDemanglerPass.so -legacy-demangler-pass -analyze ./basic_cpp_tests_BC/abstract.cpp.bc
+```
