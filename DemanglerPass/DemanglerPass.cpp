@@ -1,5 +1,9 @@
 #include <string>
 #include <cstddef>
+#include <cxxabi.h>
+#include <iostream>
+#include <exception>
+#include <stdlib.h> 
 
 #include "llvm/Pass.h"
 #include "llvm/IR/Function.h"
@@ -32,13 +36,15 @@ namespace {
 
         virtual bool runOnFunction(Function &F){
             StringRef name = F.getName();
-            if(!F.isDeclaration()){
-                //std::string demangled_name = demangle(name.str());
-                //errs() << "Demangled name: " << demangled_name << "\n";
-                errs() << "Demangled name: " << "\n";
-            }
             // name.str() -> get contents of StringRef object as a string
-            
+
+            if(!name.str().empty()){
+                errs() << "Mangled name: " << name << "\n";
+                std::string demangled_name = demangle(name.str());
+                errs() << "Demangled name: " << demangled_name << "\n";
+                errs() << "-------------------------------------------------" << "\n";
+            }
+
             // std::string new_name = rename(demangled_name);
             // F.setName(mangle(new_name, &F))
 
@@ -48,12 +54,21 @@ namespace {
         std::string demangle(const std::string &name){
             
             // Create instance of Demangler
-            size_t size = 1;
-            char *Buf = static_cast<char *>(std::malloc(size));
-            ItaniumPartialDemangler Mangler;
+            //char *Buf = static_cast<char *>(std::malloc(size));
+            //ItaniumPartialDemangler Mangler;
 
-            char* result = Mangler.getFunctionBaseName(Buf, &size);
+            //char* result = Mangler.getFunctionBaseName(Buf, &size);
             //llvm::outs() << "Result: " << result << "\n";
+
+            int status = -1;        // some arbitrary value to eliminate the compiler warning
+
+            // abi::__cxa_demangle(const char* mangled_name,
+            //                     char* output_buffer, size_t* length,                     
+            //                                           int* status)
+            char buf[1024];
+            //unsigned int size = 1024;
+            size_t size = 1024;
+            char* result = abi::__cxa_demangle(name.c_str(),buf,&size,&status);
             return result;
         }
     };
