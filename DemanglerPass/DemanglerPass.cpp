@@ -21,10 +21,10 @@
 #include "llvm/IR/Argument.h"
 #include "llvm/IR/GlobalValue.h"
 #include "llvm/IR/DataLayout.h"
-//#include "llvm/Target/Mangler.h"
 #include "llvm/Demangle/Demangle.h"
 #include "llvm/IR/LegacyPassManager.h"
 #include "llvm/Transforms/IPO/PassManagerBuilder.h"
+//#include "llvm/Target/Mangler.h"
 
 using namespace llvm;
 
@@ -43,6 +43,8 @@ namespace {
                 std::string demangled_name = demangle(name.str());
                 if(demangled_name == "") { errs() << "Empty demangled name returned!" << "\n"; }
                 errs() << "Demangled name: " << demangled_name << "\n";
+                F.setName(demangled_name);
+                errs() << "Check if the function's name has been set to demangled version: " << F.getName() << "\n";
                 errs() << "-------------------------------------------------" << "\n";
             }
 
