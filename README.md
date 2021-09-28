@@ -31,3 +31,12 @@ $LLVM_DIR/bin/clang++ -O1 -emit-llvm ./basic_cpp_tests/*.cpp -S -o out.ll
 ```
 $LLVM_DIR/bin/opt -load <build dir>/DemanglerPass/libDemanglerPass.so -legacy-demangler-pass -analyze ./basic_cpp_tests_BC/abstract.cpp.bc
 ```
+
+### Run DemanglerPass and output a .bc file with the demangled names as the new function names
+
+```
+$LLVM_DIR/bin/opt -load <build dir>/DemanglerPass/libDemanglerPass.so -legacy-demangler-pass -S /basic_cpp_tests_BC/abstract.cpp.bc -o output.ll
+```
+
+Note on opt -S
+Writes output in LLVM intermediate language 
