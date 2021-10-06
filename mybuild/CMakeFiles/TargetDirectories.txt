@@ -6,3 +6,6 @@
 /home/ry2l/LLVM-Pass-Dev/mybuild/FunctionsNames/CMakeFiles/rebuild_cache.dir
 /home/ry2l/LLVM-Pass-Dev/mybuild/FunctionsNames/CMakeFiles/edit_cache.dir
 /home/ry2l/LLVM-Pass-Dev/mybuild/FunctionsNames/CMakeFiles/FunctionsNamesPass.dir
+/home/ry2l/LLVM-Pass-Dev/mybuild/DemanglerPass/CMakeFiles/rebuild_cache.dir
+/home/ry2l/LLVM-Pass-Dev/mybuild/DemanglerPass/CMakeFiles/edit_cache.dir
+/home/ry2l/LLVM-Pass-Dev/mybuild/DemanglerPass/CMakeFiles/DemanglerPass.dir

@@ -26,7 +26,7 @@ void Zulu(int**p,int *q){
 
 }
 
-void main(){
+int main(){
 
 	Xray();
 	Yank();
