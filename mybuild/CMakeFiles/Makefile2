@@ -54,11 +54,13 @@ CMAKE_BINARY_DIR = /home/ry2l/LLVM-Pass-Dev/mybuild
 
 # The main recursive "all" target.
 all: FunctionsNames/all
+all: DemanglerPass/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: FunctionsNames/preinstall
+preinstall: DemanglerPass/preinstall
 
 .PHONY : preinstall
 
@@ -67,8 +69,27 @@ clean: CMakeFiles/acc_gen.dir/clean
 clean: CMakeFiles/omp_gen.dir/clean
 clean: CMakeFiles/intrinsics_gen.dir/clean
 clean: FunctionsNames/clean
+clean: DemanglerPass/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory DemanglerPass
+
+# Recursive "all" directory target.
+DemanglerPass/all: DemanglerPass/CMakeFiles/DemanglerPass.dir/all
+
+.PHONY : DemanglerPass/all
+
+# Recursive "preinstall" directory target.
+DemanglerPass/preinstall:
+
+.PHONY : DemanglerPass/preinstall
+
+# Recursive "clean" directory target.
+DemanglerPass/clean: DemanglerPass/CMakeFiles/DemanglerPass.dir/clean
+
+.PHONY : DemanglerPass/clean
 
 #=============================================================================
 # Directory level rules for directory FunctionsNames
@@ -176,7 +197,7 @@ CMakeFiles/intrinsics_gen.dir/clean:
 FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/all:
 	$(MAKE) -f FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/build.make FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/depend
 	$(MAKE) -f FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/build.make FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ry2l/LLVM-Pass-Dev/mybuild/CMakeFiles --progress-num=1,2 "Built target FunctionsNamesPass"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ry2l/LLVM-Pass-Dev/mybuild/CMakeFiles --progress-num=3,4 "Built target FunctionsNamesPass"
 .PHONY : FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/all
 
 # Build rule for subdir invocation for target.
@@ -195,6 +216,33 @@ FunctionsNamesPass: FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/rule
 FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/clean:
 	$(MAKE) -f FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/build.make FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/clean
 .PHONY : FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/clean
+
+#=============================================================================
+# Target rules for target DemanglerPass/CMakeFiles/DemanglerPass.dir
+
+# All Build rule for target.
+DemanglerPass/CMakeFiles/DemanglerPass.dir/all:
+	$(MAKE) -f DemanglerPass/CMakeFiles/DemanglerPass.dir/build.make DemanglerPass/CMakeFiles/DemanglerPass.dir/depend
+	$(MAKE) -f DemanglerPass/CMakeFiles/DemanglerPass.dir/build.make DemanglerPass/CMakeFiles/DemanglerPass.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ry2l/LLVM-Pass-Dev/mybuild/CMakeFiles --progress-num=1,2 "Built target DemanglerPass"
+.PHONY : DemanglerPass/CMakeFiles/DemanglerPass.dir/all
+
+# Build rule for subdir invocation for target.
+DemanglerPass/CMakeFiles/DemanglerPass.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ry2l/LLVM-Pass-Dev/mybuild/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 DemanglerPass/CMakeFiles/DemanglerPass.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ry2l/LLVM-Pass-Dev/mybuild/CMakeFiles 0
+.PHONY : DemanglerPass/CMakeFiles/DemanglerPass.dir/rule
+
+# Convenience name for target.
+DemanglerPass: DemanglerPass/CMakeFiles/DemanglerPass.dir/rule
+
+.PHONY : DemanglerPass
+
+# clean rule for target.
+DemanglerPass/CMakeFiles/DemanglerPass.dir/clean:
+	$(MAKE) -f DemanglerPass/CMakeFiles/DemanglerPass.dir/build.make DemanglerPass/CMakeFiles/DemanglerPass.dir/clean
+.PHONY : DemanglerPass/CMakeFiles/DemanglerPass.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
