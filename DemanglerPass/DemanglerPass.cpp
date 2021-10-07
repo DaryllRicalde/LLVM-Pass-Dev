@@ -24,8 +24,11 @@
 #include "llvm/Demangle/Demangle.h"
 #include "llvm/IR/LegacyPassManager.h"
 #include "llvm/Transforms/IPO/PassManagerBuilder.h"
+<<<<<<< HEAD
 #include "llvm/Passes/PassBuilder.h"
 #include "llvm/Passes/PassPlugin.h"
+=======
+>>>>>>> af793c9a9c487ff71e54bd5a3da18c442cb33aba
 //#include "llvm/Target/Mangler.h"
 
 using namespace llvm;

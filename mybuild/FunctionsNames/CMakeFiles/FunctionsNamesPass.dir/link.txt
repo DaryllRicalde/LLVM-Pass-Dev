@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC   -shared  -o libFunctionsNamesPass.so CMakeFiles/FunctionsNamesPass.dir/FunctionsNames.cpp.o   -L/usr/lib/llvm-12/lib 
