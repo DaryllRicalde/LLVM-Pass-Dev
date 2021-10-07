@@ -52,17 +52,24 @@ namespace {
 
             for(auto &BB: F){
                 for(auto &Ins : BB){
-                    //auto *callInst = dyn_cast<CallBase>(&Ins);
-                    //if(callInst == nullptr){ continue; }
+                    // check if instruction is a call instruction
                     if(isa<CallInst>(&Ins)){
-                        StringRef name = cast<CallInst>(Ins).getCalledFunction()->getName();
-                        errs() << "Debug at BB for-loop func name: " << name << "\n";
+                        CallInst *ci = dyn_cast<CallInst>(&Ins);
+                        // check if this call instruction calls a function
+                        if(ci->getCalledFunction() != nullptr){
+                            Function *f = ci->getCalledFunction();
+                            errs() << "getCalledFunction returned: " << f->getName() << "\n";
+                            //errs() << "getCalledFunction returned: " << ci->getCalledFunction()->getName() << "\n";
+                        }
+                    else{
+                    }
+                        
 
                     }
-                    else{
-                        // todo -> get the name of the instruction and demangle
-                        errs() << "Arrived at else" << "\n";
-                    }
+                    // else{
+                    //     // todo -> get the name of the instruction and demangle
+                    //     errs() << "Arrived at else" << "\n";
+                    // }
                 }
             }
 
