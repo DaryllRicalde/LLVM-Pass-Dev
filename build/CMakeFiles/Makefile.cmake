@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
   "../CMakeLists.txt"
+  "../DemanglerPass/CMakeLists.txt"
   "../FunctionsNames/CMakeLists.txt"
   "CMakeFiles/3.16.3/CMakeCCompiler.cmake"
   "CMakeFiles/3.16.3/CMakeCXXCompiler.cmake"
@@ -48,10 +49,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "FunctionsNames/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "DemanglerPass/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/intrinsics_gen.dir/DependInfo.cmake"
   "FunctionsNames/CMakeFiles/FunctionsNamesPass.dir/DependInfo.cmake"
+  "DemanglerPass/CMakeFiles/DemanglerPass.dir/DependInfo.cmake"
   )

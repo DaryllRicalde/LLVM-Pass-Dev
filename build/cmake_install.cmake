@@ -40,6 +40,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/riki/LLVM-Pass-Dev/build/FunctionsNames/cmake_install.cmake")
+  include("/home/riki/LLVM-Pass-Dev/build/DemanglerPass/cmake_install.cmake")
 
 endif()
 
